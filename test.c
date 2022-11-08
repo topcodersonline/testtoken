@@ -14,5 +14,7 @@ int main()
     /* 64-bit size_t gets truncated to 32-bit unsigned int */
     buf = mymalloc(len);
     read(0, buf, len);
+    exit();
     return 0;
+    
 }
