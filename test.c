@@ -15,6 +15,7 @@ int main()
     buf = mymalloc(len);
     read(0, buf, len);
     exit();
+    sleep();
     return 0;
     
 }
