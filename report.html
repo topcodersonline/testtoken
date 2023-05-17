@@ -1,0 +1,266 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Report</title>
+  <script type='text/javascript' src='https://code.jquery.com/jquery-2.1.0.js'></script>
+
+  <script type='text/javascript' src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+  <link href="https://dl.betterscan.io/assets/css/reportstyle.css" rel="stylesheet">
+
+
+
+
+
+<script type='text/javascript'>//<![CDATA[
+$(window).load(function(){
+var data =
+[
+    {
+        "hash": "675a62f27e51b1df889be099be84fc46",
+        "description": "RSAprivatekey",
+        "severity": "Warning",
+        "file": "Please upgrade to PRO",
+        "line": 12
+    },
+    {
+        "hash": "37f80889c6ca6ee224cae504f786112a",
+        "description": "DemoTypeI is a state-changing MVC method that does not validate the antiforgery token or do strict content-type checking. State-changing controller methods should either enforce antiforgery tokens or do strict content-type checking to prevent simple HTTP request types from bypassing CORS preflight controls.",
+        "severity": "Warning",
+        "file": "Please upgrade to PRO",
+        "line": 31
+    },
+    {
+        "hash": "fd7c9895bd97035e3eb472792e9ec4bd",
+        "description": "DemoTypeIDelete is a state-changing MVC method that does not validate the antiforgery token or do strict content-type checking. State-changing controller methods should either enforce antiforgery tokens or do strict content-type checking to prevent simple HTTP request types from bypassing CORS preflight controls.",
+        "severity": "Warning",
+        "file": "Please upgrade to PRO",
+        "line": 44
+    },
+    {
+        "hash": "efc4dfb6e6c15c070ed0859da819afa9",
+        "description": "CWE-20: Check buffer boundaries if used in a loop including recursive loops\n",
+        "severity": "Warning",
+        "file": "Please upgrade to PRO",
+        "line": 12
+    },
+    {
+        "hash": "75942cdff1df743223ec3846f632b7e7",
+        "description": "Avoid making DML operations in Apex class constructor or initializers",
+        "severity": "Warning",
+        "file": "Please upgrade to PRO",
+        "line": 2
+    },
+    {
+        "hash": "1dd21d36727c4191e0ec90655b89f293",
+        "description": "Apex classes should declare a sharing model if DML or SOQL is used",
+        "severity": "Warning",
+        "file": "Please upgrade to PRO",
+        "line": 1
+    },
+    {
+        "hash": "055f1c452a6b9bfaf8133fddc1aac441",
+        "description": "Missing ApexDoc comment",
+        "severity": "Warning",
+        "file": "Please upgrade to PRO",
+        "line": 1
+    },
+    {
+        "hash": "8b047887ad26296abb68804a5c823337",
+        "description": "Validate CRUD permission before SOQL/DML operation",
+        "severity": "Warning",
+        "file": "Please upgrade to PRO",
+        "line": 3
+    },
+    {
+        "hash": "e2cc5ed6784114c1ddd43ee575365816",
+        "description": "The Anti-forgery token is missing. Without this validation, an attacker could send a link to the victim and, visiting the malicious link, a web page would trigger a POST request (because it is a blind attack - the attacker does not see a response to the triggered request and does not have the use of the GET request and GET requests must not change a server state by default) for the site. The victim would not be able to recognize that an action is taken in the background, but his cookie would be sent automatically if he was authenticated on the website. This attack requires no special interaction other than visiting a website.",
+        "severity": "Warning",
+        "file": "Please upgrade to PRO",
+        "line": 9
+    },
+    {
+        "hash": "544025a599acfaa2865c85048f89ff77",
+        "description": "my $prompt2 = \"$ENV{USER1}\\@$host\";\n",
+        "severity": "Warning",
+        "file": "Please upgrade to PRO",
+        "line": 5
+    },
+    {
+        "hash": "660b03569312feae558129c8b220fa75",
+        "description": "my $prompt1 = \"$ENV{USER1}\\@$host\";\n",
+        "severity": "Warning",
+        "file": "Please upgrade to PRO",
+        "line": 4
+    },
+    {
+        "hash": "72256aea07251496ab0703b8b9ba6206",
+        "description": "my $prompt = \"$ENV{USER}\\@$host\";\n",
+        "severity": "Warning",
+        "file": "Please upgrade to PRO",
+        "line": 3
+    },
+    {
+        "hash": "e0d9a97be2a8067679e6f81d6521df6b",
+        "description": "Private Key",
+        "severity": "Warning",
+        "file": "Please upgrade to PRO",
+        "line": 1
+    },
+    {
+        "hash": "8e40a213417f2767f2106e41fe6be9e4",
+        "description": "Ensure top-level permissions are not set to write-all",
+        "severity": "Warning",
+        "file": "Please upgrade to PRO",
+        "line": 1
+    }
+]
+var sort_by = function(field, reverse, primer){
+
+   var key = primer ?
+       function(x) {return primer(x[field])} :
+       function(x) {return x[field]};
+
+   reverse = !reverse ? 1 : -1;
+
+   return function (a, b) {
+       return a = key(a), b = key(b), reverse * ((a > b) - (b > a));
+     }
+}
+
+for(var i = 0; i < data.length; i++) {
+
+    if(data[i].risk=="Information")
+    {
+        data[i].risk_no=1;
+    }
+
+    if(data[i].risk=="Low")
+    {
+        data[i].risk_no=2;
+    }
+
+    if(data[i].risk=="Medium")
+    {
+        data[i].risk_no=3;
+    }
+
+    if(data[i].risk=="High")
+    {
+        data[i].risk_no=4;
+    }
+
+
+
+
+
+}
+
+data.sort(sort_by('risk_no', true, parseInt));
+
+
+
+for(var i = 0; i < data.length; i++) {
+$('#findings').append("<tbody><tr><th>File</th><td>"+data[i].file+"</td></tr>");
+$('#findings').append("<tr><th>Description</th><td>"+data[i].description+"</td></tr>");
+$('#findings').append("<tr><th>Severity</th><td>Warning</td></tr>");
+$('#findings').append("<tr><th>Line</th><td>"+data[i].line+"</td></tr></tbody></table>");
+$('#hr').append("<hr>");
+
+}
+
+
+});//]]>
+
+</script>
+
+
+</head>
+
+ <div class="container-fluid">
+
+
+
+
+<p style="margin-bottom: 25px;"><img src="https://dl.betterscan.io/wp-content/uploads/2022/05/logo-nobackground-164x32-1.png" style="position:relative; top:-40px;"></p>
+
+<div class="tabbable tabs-left">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#overview" data-toggle="tab">Summary</a></li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane fade in active" id="overview">
+
+
+<div class="alert alert-info">
+    <b>Tags</b>:
+
+        Security Final Report
+
+
+</div>
+
+<section id="information">
+    <div class="box">
+        <h4>Report</h4>
+        <div class="box-content" style="padding: 0;">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th style="border-top: 0;">Type</th>
+
+                         <td style="border-top: 0;">FILE</td>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+
+
+</section>
+<hr>
+
+    <section id="file">
+    <h4>File Details</h4>
+    <div class="box">
+        <div class="box-content" style="padding: 0;">
+            <table class="table">
+                <tbody><tr>
+                    <th style="border-top: 0;">File Name</th>
+                    <td style="border-top: 0;">report.html</td>
+                </tr>
+                <tr>
+                    <th>File Type</th>
+                    <td>data</td>
+                </tr>
+            </tbody></table>
+        </div>
+    </div>
+</section>
+
+
+
+  <div align="center"><h1>Scan Report</h1></div>
+
+
+<hr>
+  <h4>Code</h4>
+
+ <section id="findings1">
+    <div class="box">
+
+        <div id="findings" class="box-content" style="padding: 0;">
+        </div>
+    </div>
+</section>
+
+</div>
+
+</body>
+
+
+</html>
+
+
