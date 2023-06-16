@@ -20,3 +20,4 @@ if (validate_password( $ARGV[0])) {
 };
 
 my $host1 = `hostname`;
+my $host2 = `hostname`;
