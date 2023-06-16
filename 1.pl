@@ -18,3 +18,5 @@ if (validate_password( $ARGV[0])) {
 } else {
   print "$prompt: access denied\n";
 };
+
+my $host1 = `hostname`;
